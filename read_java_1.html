@@ -51,7 +51,7 @@
                         <input type="hidden" value="@Model.BlogTypeID" id="blogtypeid" />
                         <section class="article-item">
                             <aside class="title" style="line-height:1.5;">
-                                <h4>Java基础知识-基本类型</h4>
+                                <h4>Java基础知识-String</h4>
                                 <p class="fc-grey fs-14">
                                     <small>
                                         作者：<a href="javascript:void(0)" target="_blank" class="fc-link">Hys</a>
@@ -67,99 +67,80 @@
                             </div>
                             <div class="content artiledetail"
                                 style="border-bottom: 1px solid #e1e2e0; padding-bottom: 20px;">
-                                <h3>1.基本数据类型</h3>
+                                <h3>1.String、StringBuffer、StringBuilder区别</h3>
                                 <div style="padding-left: 5%;">
-                                    Java中有 8 种基本数据类型，分别为：byte，int，short，long，char，boolean，float，double。其中这八种数据类型的默认值以及空间如下：
-                                    <table style="border: #e1e2e0 solid 2px;">
-                                        <thead style="text-align: center;">
-                                            <th class="table_tr">基本数据类型</th>
-                                            <th class="table_tr" class="table_tr">位数</th>
-                                            <th class="table_tr" class="table_tr">字节</th>
-                                            <th class="table_tr" class="table_tr">默认值</th>
-                                            <th class="table_tr" class="table_tr">取值范围</th>
-                                        </thead>
-                                        <tr>
-                                            <th class="table_tr">byte</th>
-                                            <th class="table_tr">8</th>
-                                            <th class="table_tr">1</th>
-                                            <th class="table_tr">0</th>
-                                            <th class="table_tr">-128~127</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">int</th>
-                                            <th class="table_tr">32</th>
-                                            <th class="table_tr">4</th>
-                                            <th class="table_tr">0</th>
-                                            <th class="table_tr">-2147483648 ~ 2147483647</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">short</th>
-                                            <th class="table_tr">16</th>
-                                            <th class="table_tr">2</th>
-                                            <th class="table_tr">0</th>
-                                            <th class="table_tr">-32768 ~ 32767</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">long</th>
-                                            <th class="table_tr">64</th>
-                                            <th class="table_tr">8</th>
-                                            <th class="table_tr">0L</th>
-                                            <th class="table_tr">-9223372036854775808 ~ 9223372036854775807</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">char</th>
-                                            <th class="table_tr">16</th>
-                                            <th class="table_tr">2</th>
-                                            <th class="table_tr">'u0000'</th>
-                                            <th class="table_tr">0 ~ 65535</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">float</th>
-                                            <th class="table_tr">32</th>
-                                            <th class="table_tr">4</th>
-                                            <th class="table_tr">0f</th>
-                                            <th class="table_tr">1.4E-45 ~ 3.4028235E38</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">double</th>
-                                            <th class="table_tr">64</th>
-                                            <th class="table_tr">8</th>
-                                            <th class="table_tr">0d</th>
-                                            <th class="table_tr">4.9E-324 ~ 1.7976931348623157E308</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="table_tr">boolean</th>
-                                            <th class="table_tr">1</th>
-                                            <th class="table_tr"></th>
-                                            <th class="table_tr">fasle</th>
-                                            <th class="table_tr">true、fasle</th>
-                                        </tr>
-                                    </table>
-                                    <h4>注意：</h4>
                                     <div>
-                                        <p>1.Java 里使用 long 类型的数据一定要在数值后面加上 L，否则将作为整型解析</p>
-                                        <p>2.char a = 'h'char :单引号，String a = "hello" :双引号。</p>
+                                        <P>1.1 String</P>
+                                        <div style="padding-left: 5%;">
+                                            <p>(1) 保存字符串的数组被 final 修饰且为私有的，并且String 类没有提供/暴露修改这个字符串的方法。</p>
+                                            <p>(2) String 类被 final 修饰导致其不能被继承，进而避免了子类破坏 String 不可变。</p>
+                                            如图：
+                                        </div>
+                                        <img src="./image/String_0.png">
+                                        <p>1.2 StringBuffer与StringBuilder</p>
+                                        <div style="padding-left: 5%;">
+                                            <p>StringBuilder 与 StringBuffer 都继承自 AbstractStringBuilder 类，在
+                                                AbstractStringBuilder 中也是使用字符数组保存字符串，不过没有使用 final 和 private
+                                                关键字修饰，最关键的是这个 AbstractStringBuilder 类还提供了很多修改字符串的方法比如 append 方法。</p>
+                                        </div>
+                                        <P>1.3 三者区别</P>
+                                        <div style="padding-left: 5%;">
+                                            <h4>线程安全</h4>
+                                            <div style="padding-left: 5%;">
+                                                <P>String 中的对象是不可变的，也就可以理解为常量，线程安全</P>
+                                                <p>StringBuffer 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。StringBuilder
+                                                    并没有对方法进行加同步锁，所以是非线程安全的。</p>
+                                            </div>
+                                            <h4>性能</h4>
+                                            <div style="padding-left: 5%;">
+                                                <P>每次对 String 类型进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String
+                                                    对象。StringBuffer 每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象并改变对象引用。相同情况下使用
+                                                    StringBuilder 相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险。
+                                                </p>
+                                            </div>
+                                            <h3>
+                                                总结：
+                                            </h3>
+                                            <div>
+                                                少量的数据: String，
+                                                单线程:StringBuilder，
+                                                多线程:StringBuffer
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <h3>
-                                    2.包装类型
-                                </h3>
+                                <h3>2.==与equals，字符串拼接</h3>
                                 <div style="padding-left: 5%;">
-                                    八中基本类型对应的包装类型Integer、Byte、Short、Long、Boolean、Character、Double、Float。
-                                    其中Byte,Short,Integer,Long 这 4 种包装类默认创建了数值 [-128，127] 的相应类型的缓存数据，Character 创建了数值在 [0,127] 范围的缓存数据，Boolean 直接返回 True or False。
-                                    也就是只要取值在对应的范围，就是去常量池取值，当超出范围时，才会创建新的对象。例如：Integer a=2，Integer b=2。a==b是true。而a=128，b=128。这时候a==b是fasle。
-                                </div>
-                                <P>Integer源码：</P>
-                                <h3>
-                                    2.1 装箱和拆箱：
-                                   <P> 装箱：将基本类型用它们对应的引用类型包装起来；调用了包装类的valueOf()方法</P>
-                                   <P> 拆箱：将包装类型转换为基本数据类型；调用了xxxValue()方法</P>
-                                </h3>
-                                <img src="image/Integer源码.png">
-                                
-                                <h4>注意：</h4>
-                                <div>
-                                    <p>1.Float以及Double没有实现常量池技术</p>
+                                    <p>2.1==与equals的区别</p>
+                                    <div style="padding-left: 5%;">
+                                        <div>
+                                            <p>对于基本数据类型来说，== 比较的是值。对于引用数据类型来说，== 比较的是对象的内存地址。</p>
+                                            <p>equals() 不能用于判断基本数据类型的变量，只能用来判断两个对象是否相等。(没有重写就是==，重写后按重写的方法判断)</p>
+                                            <p>String的equals：</p>
+                                            <img src="./image/String_equals.png">
+                                        </div>
+                                    </div>
+                                    <p>2.2 hashCode() 与 equals()</p>
+                                    <div style="padding-left:5%">
+                                        <h4>hashCode</h4>
+                                        <div>hashCode() 的作用是获取哈希码（int 整数），也称为散列码。作用是确定该对象在哈希表中的索引位置。
+                                            <p>hashCode()定义在 JDK 的 Object 类中，这就意味着 Java 中的任何类都包含有 hashCode() 函数。</p>
+                                        </div>
+                                        <strong>为什么重写 equals() 时必须重写 hashCode() 方法</strong>
+                                        <div>
+                                            因为两个相等的对象，hashCode必定相等，而hashcode相等的两个的对象不一定相等(因为hashCode是使用哈希算法算出来的，有可能碰巧算出来的值一样)，所以在equals判断时，如果重写了equals，但是没有重写hashCode。就会出现相等的对象，hashCode不一样。
+                                        </div>
+                                    </div>
+                                     
+                                    <p>2.3 字符串拼接：+与StringBuilder对象</p>
+                                    <div style="padding-left:5%">
+                                        <p>+本质上使用的就是StringBuilder的append方法，但是+有严重的缺点：+不会复用StringBuilder对象，意味着每次使用+时都会创建StringBuilder对象。</p>
+                                    </div>
+                                    <strong>补充：</strong>
+                                    <div style="padding-left: 5%;">
+                                        字符串常量池 是 JVM 为了提升性能和减少内存消耗针对字符串（String 类）专门开辟的一块区域，主要目的是为了避免字符串的重复创建。
+                                        JDK1.7 之前运行时常量池逻辑包含字符串常量池存放在方法区。JDK1.7 的时候，字符串常量池被从方法区拿到了堆中。
+                                    </div>
                                 </div>
                                 <div class="copyright mt20">
                                     <p class="f-toe fc-black">
