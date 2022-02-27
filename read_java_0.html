@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="www.lzqcode.com" />
+    <title>文章阅读</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="layui/css/layui.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/gloable.css" />
+    <link rel="stylesheet" href="css/nprogress.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+</head>
+
+<body>
+    <div class="header">
+    </div>
+    <header class="gird-header">
+        <div class="header-fixed">
+            <div class="header-inner">
+                <a href="javascript:void(0)" class="header-logo" id="logo">Mr.liu</a>
+                <nav class="nav" id="nav">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="article.html">博客</a></li>
+                        <li><a href="message.html">留言</a></li>
+                        <li><a href="diary.html">日记</a></li>
+                        <li><a href="link.html">友链</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="blog-user">
+                    <i class="fa fa-qq"></i>
+                </a>
+                <a class="phone-menu">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="doc-container" id="doc-container">
+        <div class="container-fixed">
+            <div class="col-content" style="width:100%">
+                <div class="inner">
+                    <article class="article-list">
+                        <input type="hidden" value="@Model.BlogTypeID" id="blogtypeid" />
+                        <section class="article-item">
+                            <aside class="title" style="line-height:1.5;">
+                                <h4>Java基础知识</h4>
+                                <p class="fc-grey fs-14">
+                                    <small>
+                                        作者：<a href="javascript:void(0)" target="_blank" class="fc-link">Hys</a>
+                                    </small>
+                                    <!-- <small class="ml10">围观群众：<i class="readcount">121</i></small> -->
+                                    <small class="ml10">更新于 <label>2020-07-1:11:20:21</label> </small>
+                                </p>
+                            </aside>
+                            <div class="time mt10" style="padding-bottom:0;">
+                                <span class="day">1</span>
+                                <span class="month fs-18">7<small class="fs-14">月</small></span>
+                                <span class="year fs-18">2020</span>
+                            </div>
+                            <div class="content artiledetail"
+                                style="border-bottom: 1px solid #e1e2e0; padding-bottom: 20px;">
+                                <h3>1.基本数据类型</h3>
+                                <div style="padding-left: 5%;">
+                                    Java中有 8 种基本数据类型，分别为：byte，int，short，long，char，boolean，float，double。其中这八种数据类型的默认值以及空间如下：
+                                    <table style="border: #e1e2e0 solid 2px;">
+                                        <thead style="text-align: center;">
+                                            <th class="table_tr">基本数据类型</th>
+                                            <th class="table_tr" class="table_tr">位数</th>
+                                            <th class="table_tr" class="table_tr">字节</th>
+                                            <th class="table_tr" class="table_tr">默认值</th>
+                                            <th class="table_tr" class="table_tr">取值范围</th>
+                                        </thead>
+                                        <tr>
+                                            <th class="table_tr">byte</th>
+                                            <th class="table_tr">8</th>
+                                            <th class="table_tr">1</th>
+                                            <th class="table_tr">0</th>
+                                            <th class="table_tr">-128~127</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">int</th>
+                                            <th class="table_tr">32</th>
+                                            <th class="table_tr">4</th>
+                                            <th class="table_tr">0</th>
+                                            <th class="table_tr">-2147483648 ~ 2147483647</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">short</th>
+                                            <th class="table_tr">16</th>
+                                            <th class="table_tr">2</th>
+                                            <th class="table_tr">0</th>
+                                            <th class="table_tr">-32768 ~ 32767</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">long</th>
+                                            <th class="table_tr">64</th>
+                                            <th class="table_tr">8</th>
+                                            <th class="table_tr">0L</th>
+                                            <th class="table_tr">-9223372036854775808 ~ 9223372036854775807</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">char</th>
+                                            <th class="table_tr">16</th>
+                                            <th class="table_tr">2</th>
+                                            <th class="table_tr">'u0000'</th>
+                                            <th class="table_tr">0 ~ 65535</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">float</th>
+                                            <th class="table_tr">32</th>
+                                            <th class="table_tr">4</th>
+                                            <th class="table_tr">0f</th>
+                                            <th class="table_tr">1.4E-45 ~ 3.4028235E38</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">double</th>
+                                            <th class="table_tr">64</th>
+                                            <th class="table_tr">8</th>
+                                            <th class="table_tr">0d</th>
+                                            <th class="table_tr">4.9E-324 ~ 1.7976931348623157E308</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="table_tr">boolean</th>
+                                            <th class="table_tr">1</th>
+                                            <th class="table_tr"></th>
+                                            <th class="table_tr">fasle</th>
+                                            <th class="table_tr">true、fasle</th>
+                                        </tr>
+                                    </table>
+                                    <h4>注意：</h4>
+                                    <div>
+                                        <p>1.Java 里使用 long 类型的数据一定要在数值后面加上 L，否则将作为整型解析</p>
+                                        <p>2.char a = 'h'char :单引号，String a = "hello" :双引号。</p>
+                                    </div>
+                                </div>
+                                <h3>
+                                    2.包装类型
+                                </h3>
+                                <div style="padding-left: 5%;">
+                                    八中基本类型对应的包装类型Integer、Byte、Short、Long、Boolean、Character、Double、Float。
+                                    其中Byte,Short,Integer,Long 这 4 种包装类默认创建了数值 [-128，127] 的相应类型的缓存数据，Character 创建了数值在 [0,127] 范围的缓存数据，Boolean 直接返回 True or False。
+                                    也就是只要取值在对应的范围，就是去常量池取值，当超出范围时，才会创建新的对象。例如：Integer a=2，Integer b=2。a==b是true。而a=128，b=128。这时候a==b是fasle。
+                                </div>
+                                <P>Integer源码：</P>
+                                <h3>
+                                    2.1 装箱和拆箱：
+                                   <P> 装箱：将基本类型用它们对应的引用类型包装起来；调用了包装类的valueOf()方法</P>
+                                   <P> 拆箱：将包装类型转换为基本数据类型；调用了xxxValue()方法</P>
+                                </h3>
+                                <img src="image/Integer源码.png">
+                                
+                                <h4>注意：</h4>
+                                <div>
+                                    <p>1.Float以及Double没有实现常量池技术</p>
+                                </div>
+                                <div class="copyright mt20">
+                                    <p class="f-toe fc-black">
+                                        非特殊说明，本文版权归 Hys个人博客 所有，转载请注明出处.
+                                    </p>
+                                    <p class="f-toe">
+                                        本文标题：
+                                        <a href="javascript:void(0)" class="r-title">Java基础知识</a>
+                                    </p>
+                                    <p class="f-toe">
+                                        本文网址：
+                                        <a href="#">暂无</a>
+                                    </p>
+                                </div>
+                                <div id="aplayer" style="margin:5px 0"></div>
+                                <h6>延伸阅读</h6>
+                                <ol class="b-relation"></ol>
+                            </div>
+                            <div class="bdsharebuttonbox share" data-tag="share_1">
+                                <ul>
+                                    <li class="f-praise"><span><a class="s-praise"></a></span></li>
+                                    <li class="f-weinxi"><a class="s-weinxi" data-cmd="weixin"></a></li>
+                                    <li class="f-sina"><a class="s-sina" data-cmd="tsina"></a></li>
+                                    <li class="f-qq" href="#"><i class="fa fa-qq"></i></li>
+                                    <li class="f-qzone"><a class="s-qzone" data-cmd="qzone"></a></li>
+                                </ul>
+                            </div>
+                            <div class="f-cb"></div>
+                            <div class="mt20 f-fwn fs-24 fc-grey comment"
+                                style="border-top: 1px solid #e1e2e0; padding-top: 20px;">
+                            </div>
+                            <fieldset class="layui-elem-field layui-field-title">
+                                <legend>发表评论</legend>
+                                <div class="layui-field-box">
+                                    <div class="leavemessage" style="text-align:initial">
+                                        <form class="layui-form blog-editor" action="">
+                                            <input type="hidden" name="articleid" id="articleid" value="@Model.ID">
+                                            <div class="layui-form-item">
+                                                <textarea name="editorContent" lay-verify="content" id="remarkEditor"
+                                                    placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <button class="layui-btn" lay-submit="formLeaveMessage"
+                                                    lay-filter="formLeaveMessage">提交留言</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <ul class="blog-comment" id="blog-comment"></ul>
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="grid-footer">
+        <div class="footer-fixed">
+            <div class="copyright">
+                <div class="info">
+                    <div class="contact">
+                        <a href="javascript:void(0)" class="github" target="_blank"><i class="fa fa-github"></i></a>
+                        <a href="#" class="qq" target="_blank"><i class="fa fa-qq"></i></a>
+                        <a href="#" class="email" target="_blank"><i class="fa fa-envelope"></i></a>
+                        <a href="javascript:void(0)" class="weixin"><i class="fa fa-weixin"></i></a>
+                    </div>
+                    <p class="mt05">
+                        Copyright &copy; 2019-2020 ZQ博客 All Rights Reserved V.3.1.3 Power by ZQ博客
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="layui/layui.js"></script>
+    <script src="js/yss/gloable.js"></script>
+    <script src="js/plugins/nprogress.js"></script>
+    <script src="js/pagecomment.js"></script>
+    <script>
+        NProgress.start();
+    </script>
+    <script>
+        window.onload = function () {
+            NProgress.done();
+        };
+    </script>
+</body>
+
+</html>
